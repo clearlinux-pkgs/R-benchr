@@ -4,7 +4,7 @@
 #
 Name     : R-benchr
 Version  : 0.2.5
-Release  : 21
+Release  : 22
 URL      : https://cran.r-project.org/src/contrib/benchr_0.2.5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/benchr_0.2.5.tar.gz
 Summary  : High Precise Measurement of R Expressions Execution Time
@@ -13,24 +13,12 @@ License  : GPL-2.0+
 Requires: R-benchr-lib = %{version}-%{release}
 Requires: R-Rcpp
 Requires: R-RcppProgress
-Requires: R-ggplot2
 BuildRequires : R-Rcpp
 BuildRequires : R-RcppProgress
-BuildRequires : R-ggplot2
 BuildRequires : buildreq-R
 
 %description
-# benchr
-<!-- badges: start -->
-[![GitLab CI Build
-Status](https://gitlab.com/artemklevtsov/benchr/badges/master/pipeline.svg)](https://gitlab.com/artemklevtsov/benchr/pipelines)
-[![AppVeyror Build
-status](https://ci.appveyor.com/api/projects/status/hoq3abe0kn34ie56/branch/master?svg=true)](https://ci.appveyor.com/project/artemklevtsov/benchr)
-[![Codecov Code
-Coverage](https://codecov.io/gl/artemklevtsov/benchr/branch/master/graph/badge.svg)](https://codecov.io/gl/artemklevtsov/benchr)
-[![CRAN
-Status](http://www.r-pkg.org/badges/version/benchr)](https://cran.r-project.org/package=benchr)
-[![License](http://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html)
+the execution time of R expressions.
 
 %package lib
 Summary: lib components for the R-benchr package.
@@ -42,21 +30,22 @@ lib components for the R-benchr package.
 
 %prep
 %setup -q -c -n benchr
+cd %{_builddir}/benchr
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583769534
+export SOURCE_DATE_EPOCH=1589762089
 
 %install
-export SOURCE_DATE_EPOCH=1583769534
+export SOURCE_DATE_EPOCH=1589762089
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib

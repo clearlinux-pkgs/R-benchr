@@ -4,7 +4,7 @@
 #
 Name     : R-benchr
 Version  : 0.2.5
-Release  : 26
+Release  : 27
 URL      : https://cran.r-project.org/src/contrib/benchr_0.2.5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/benchr_0.2.5.tar.gz
 Summary  : High Precise Measurement of R Expressions Execution Time
